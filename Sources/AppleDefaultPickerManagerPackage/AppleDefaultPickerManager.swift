@@ -57,16 +57,18 @@ public final class AppleDefaultPickerManager {
     // MARK: - Private Methods
 
     private func showPicker(_ presentingViewController: UIViewController) {
-        let config = configBuilder.build()
-        let pickerViewController = PHPickerViewController(configuration: config)
-        pickerViewController.modalPresentationStyle = presentationStyle
-        pickerViewController.delegate = self
+        DispatchQueue.main.async {
+            let config = self.configBuilder.build()
+            let pickerViewController = PHPickerViewController(configuration: config)
+            pickerViewController.modalPresentationStyle = self.presentationStyle
+            pickerViewController.delegate = self
 
-        presentingViewController.present(pickerViewController, animated: true) {
-            self.delegate?.didPresentPicker(pickerViewController)
+            presentingViewController.present(pickerViewController, animated: true) {
+                self.delegate?.didPresentPicker(pickerViewController)
+            }
+
+            self.pickerViewController = pickerViewController
         }
-
-        self.pickerViewController = pickerViewController
     }
 }
 
