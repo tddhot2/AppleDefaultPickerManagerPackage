@@ -4,6 +4,7 @@ Description : Present PHPickerViewController to check and get `PHAsset` simply
 
 # Contents
 - [Available Versions](#available-versions)
+- [Installation](#installation)
 - [Usage](#usage)
   * [Present Default Apple Picker](#present-default-apple-picker)
   * [Delegate method](#delegate-method)
@@ -13,6 +14,17 @@ Description : Present PHPickerViewController to check and get `PHAsset` simply
 # Available Versions
 
 - Available since iOS 15.0.
+
+# Installation
+
+- `AppleDefaultPickerManagerPackage` only use SPM to distribute this package.
+- If you manually add package by source code. Open `Package.swift` and edit like below.
+
+```Swift
+dependencies: [
+    .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "0.0.0"))
+]
+```
 
 # Usage
 
